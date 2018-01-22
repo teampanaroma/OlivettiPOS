@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="DosyaGonder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dosyaAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dosyaByte" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DosyaGonderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DosyaGonderResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sonuc">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="sonucId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sonucAciklama" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SonKayitBul">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SonKayitBulResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SonKayitBulResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Z_AktarNCR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="belge" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kasaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Z_AktarNCRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Z_AktarNCRResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EksikSatislariBul">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tarih" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="kasano" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EksikSatislariBulResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EksikSatislariBulResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MesajKontrol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MesajKontrolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MesajKontrolResult" type="tns:Mesaj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Mesaj">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="mesajId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="mesajTur" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="mesajAciklama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="teraziler" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="mesajTarihi" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="urunAciklama" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MesajGuncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mesajId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="durum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MesajGuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MesajGuncelleResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MesajGuncelleTerazi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="teraziNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="durum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MesajGuncelleTeraziResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MesajGuncelleTeraziResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TutarCevir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tutar" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TutarCevirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TutarCevirResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HarfBuyukKucuk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="harf" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HarfBuyukKucukResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HarfBuyukKucukResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BirimCevir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="toplam" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="birim" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BirimCevirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BirimCevirResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="test">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="belge" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeKontrolNCR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="belge" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeKontrolNCRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BelgeKontrolNCRResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktarNCR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="belge" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktarNCRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BelgeAktarNCRResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktarAramis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="belge" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktarAramisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BelgeAktarAramisResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="belge" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BelgeAktarResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktar2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="belgeTipi" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="belgeTarihi" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="kasaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kasiyerNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="evrakNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="saat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fisNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fisToplam" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="belgeIndirim" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="musteriKodu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="musteriKartNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAktar2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BelgeAktar2Result" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAyrintiAktar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="belgeno" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="satirNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="stkKodu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="barkod" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="miktar" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="netMiktar" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="kdvOrani" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="tutar" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="netTutar" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="indirim" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="indirimYns" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="toplamIndirim" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="promosyon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeAyrintiAktarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BelgeAyrintiAktarResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BaglantiTest">
+        <s:complexType />
+      </s:element>
+      <s:element name="BaglantiTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BaglantiTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeOdemeAktar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="belgeno" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="odemeTipi" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="odemeTutari" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BelgeOdemeAktarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BelgeOdemeAktarResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="urunler" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FiyatListesiAlResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DosyaKopyala">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dosya1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dosya2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DosyaKopyalaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DosyaKopyalaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAlAramis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="urunler" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAlAramisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FiyatListesiAlAramisResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAlWincor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="urunler" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAlWincorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FiyatListesiAlWincorResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAlTerazi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="magazaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="urunler" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FiyatListesiAlTeraziResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FiyatListesiAlTeraziResult" type="tns:Sonuc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DosyaGonderSoapIn">
+    <wsdl:part name="parameters" element="tns:DosyaGonder" />
+  </wsdl:message>
+  <wsdl:message name="DosyaGonderSoapOut">
+    <wsdl:part name="parameters" element="tns:DosyaGonderResponse" />
+  </wsdl:message>
+  <wsdl:message name="SonKayitBulSoapIn">
+    <wsdl:part name="parameters" element="tns:SonKayitBul" />
+  </wsdl:message>
+  <wsdl:message name="SonKayitBulSoapOut">
+    <wsdl:part name="parameters" element="tns:SonKayitBulResponse" />
+  </wsdl:message>
+  <wsdl:message name="Z_AktarNCRSoapIn">
+    <wsdl:part name="parameters" element="tns:Z_AktarNCR" />
+  </wsdl:message>
+  <wsdl:message name="Z_AktarNCRSoapOut">
+    <wsdl:part name="parameters" element="tns:Z_AktarNCRResponse" />
+  </wsdl:message>
+  <wsdl:message name="EksikSatislariBulSoapIn">
+    <wsdl:part name="parameters" element="tns:EksikSatislariBul" />
+  </wsdl:message>
+  <wsdl:message name="EksikSatislariBulSoapOut">
+    <wsdl:part name="parameters" element="tns:EksikSatislariBulResponse" />
+  </wsdl:message>
+  <wsdl:message name="MesajKontrolSoapIn">
+    <wsdl:part name="parameters" element="tns:MesajKontrol" />
+  </wsdl:message>
+  <wsdl:message name="MesajKontrolSoapOut">
+    <wsdl:part name="parameters" element="tns:MesajKontrolResponse" />
+  </wsdl:message>
+  <wsdl:message name="MesajGuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:MesajGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="MesajGuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:MesajGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="MesajGuncelleTeraziSoapIn">
+    <wsdl:part name="parameters" element="tns:MesajGuncelleTerazi" />
+  </wsdl:message>
+  <wsdl:message name="MesajGuncelleTeraziSoapOut">
+    <wsdl:part name="parameters" element="tns:MesajGuncelleTeraziResponse" />
+  </wsdl:message>
+  <wsdl:message name="TutarCevirSoapIn">
+    <wsdl:part name="parameters" element="tns:TutarCevir" />
+  </wsdl:message>
+  <wsdl:message name="TutarCevirSoapOut">
+    <wsdl:part name="parameters" element="tns:TutarCevirResponse" />
+  </wsdl:message>
+  <wsdl:message name="HarfBuyukKucukSoapIn">
+    <wsdl:part name="parameters" element="tns:HarfBuyukKucuk" />
+  </wsdl:message>
+  <wsdl:message name="HarfBuyukKucukSoapOut">
+    <wsdl:part name="parameters" element="tns:HarfBuyukKucukResponse" />
+  </wsdl:message>
+  <wsdl:message name="BirimCevirSoapIn">
+    <wsdl:part name="parameters" element="tns:BirimCevir" />
+  </wsdl:message>
+  <wsdl:message name="BirimCevirSoapOut">
+    <wsdl:part name="parameters" element="tns:BirimCevirResponse" />
+  </wsdl:message>
+  <wsdl:message name="testSoapIn">
+    <wsdl:part name="parameters" element="tns:test" />
+  </wsdl:message>
+  <wsdl:message name="testSoapOut">
+    <wsdl:part name="parameters" element="tns:testResponse" />
+  </wsdl:message>
+  <wsdl:message name="BelgeKontrolNCRSoapIn">
+    <wsdl:part name="parameters" element="tns:BelgeKontrolNCR" />
+  </wsdl:message>
+  <wsdl:message name="BelgeKontrolNCRSoapOut">
+    <wsdl:part name="parameters" element="tns:BelgeKontrolNCRResponse" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktarNCRSoapIn">
+    <wsdl:part name="parameters" element="tns:BelgeAktarNCR" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktarNCRSoapOut">
+    <wsdl:part name="parameters" element="tns:BelgeAktarNCRResponse" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktarAramisSoapIn">
+    <wsdl:part name="parameters" element="tns:BelgeAktarAramis" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktarAramisSoapOut">
+    <wsdl:part name="parameters" element="tns:BelgeAktarAramisResponse" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktarSoapIn">
+    <wsdl:part name="parameters" element="tns:BelgeAktar" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktarSoapOut">
+    <wsdl:part name="parameters" element="tns:BelgeAktarResponse" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktar2SoapIn">
+    <wsdl:part name="parameters" element="tns:BelgeAktar2" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAktar2SoapOut">
+    <wsdl:part name="parameters" element="tns:BelgeAktar2Response" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAyrintiAktarSoapIn">
+    <wsdl:part name="parameters" element="tns:BelgeAyrintiAktar" />
+  </wsdl:message>
+  <wsdl:message name="BelgeAyrintiAktarSoapOut">
+    <wsdl:part name="parameters" element="tns:BelgeAyrintiAktarResponse" />
+  </wsdl:message>
+  <wsdl:message name="BaglantiTestSoapIn">
+    <wsdl:part name="parameters" element="tns:BaglantiTest" />
+  </wsdl:message>
+  <wsdl:message name="BaglantiTestSoapOut">
+    <wsdl:part name="parameters" element="tns:BaglantiTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="BelgeOdemeAktarSoapIn">
+    <wsdl:part name="parameters" element="tns:BelgeOdemeAktar" />
+  </wsdl:message>
+  <wsdl:message name="BelgeOdemeAktarSoapOut">
+    <wsdl:part name="parameters" element="tns:BelgeOdemeAktarResponse" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlSoapIn">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAl" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlSoapOut">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAlResponse" />
+  </wsdl:message>
+  <wsdl:message name="DosyaKopyalaSoapIn">
+    <wsdl:part name="parameters" element="tns:DosyaKopyala" />
+  </wsdl:message>
+  <wsdl:message name="DosyaKopyalaSoapOut">
+    <wsdl:part name="parameters" element="tns:DosyaKopyalaResponse" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlAramisSoapIn">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAlAramis" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlAramisSoapOut">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAlAramisResponse" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlWincorSoapIn">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAlWincor" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlWincorSoapOut">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAlWincorResponse" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlTeraziSoapIn">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAlTerazi" />
+  </wsdl:message>
+  <wsdl:message name="FiyatListesiAlTeraziSoapOut">
+    <wsdl:part name="parameters" element="tns:FiyatListesiAlTeraziResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="DosyaGonder">
+      <wsdl:input message="tns:DosyaGonderSoapIn" />
+      <wsdl:output message="tns:DosyaGonderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SonKayitBul">
+      <wsdl:input message="tns:SonKayitBulSoapIn" />
+      <wsdl:output message="tns:SonKayitBulSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Z_AktarNCR">
+      <wsdl:input message="tns:Z_AktarNCRSoapIn" />
+      <wsdl:output message="tns:Z_AktarNCRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EksikSatislariBul">
+      <wsdl:input message="tns:EksikSatislariBulSoapIn" />
+      <wsdl:output message="tns:EksikSatislariBulSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MesajKontrol">
+      <wsdl:input message="tns:MesajKontrolSoapIn" />
+      <wsdl:output message="tns:MesajKontrolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MesajGuncelle">
+      <wsdl:input message="tns:MesajGuncelleSoapIn" />
+      <wsdl:output message="tns:MesajGuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MesajGuncelleTerazi">
+      <wsdl:input message="tns:MesajGuncelleTeraziSoapIn" />
+      <wsdl:output message="tns:MesajGuncelleTeraziSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TutarCevir">
+      <wsdl:input message="tns:TutarCevirSoapIn" />
+      <wsdl:output message="tns:TutarCevirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HarfBuyukKucuk">
+      <wsdl:input message="tns:HarfBuyukKucukSoapIn" />
+      <wsdl:output message="tns:HarfBuyukKucukSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BirimCevir">
+      <wsdl:input message="tns:BirimCevirSoapIn" />
+      <wsdl:output message="tns:BirimCevirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:testSoapIn" />
+      <wsdl:output message="tns:testSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BelgeKontrolNCR">
+      <wsdl:input message="tns:BelgeKontrolNCRSoapIn" />
+      <wsdl:output message="tns:BelgeKontrolNCRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktarNCR">
+      <wsdl:input message="tns:BelgeAktarNCRSoapIn" />
+      <wsdl:output message="tns:BelgeAktarNCRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktarAramis">
+      <wsdl:input message="tns:BelgeAktarAramisSoapIn" />
+      <wsdl:output message="tns:BelgeAktarAramisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktar">
+      <wsdl:input message="tns:BelgeAktarSoapIn" />
+      <wsdl:output message="tns:BelgeAktarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktar2">
+      <wsdl:input message="tns:BelgeAktar2SoapIn" />
+      <wsdl:output message="tns:BelgeAktar2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAyrintiAktar">
+      <wsdl:input message="tns:BelgeAyrintiAktarSoapIn" />
+      <wsdl:output message="tns:BelgeAyrintiAktarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BaglantiTest">
+      <wsdl:input message="tns:BaglantiTestSoapIn" />
+      <wsdl:output message="tns:BaglantiTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BelgeOdemeAktar">
+      <wsdl:input message="tns:BelgeOdemeAktarSoapIn" />
+      <wsdl:output message="tns:BelgeOdemeAktarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAl">
+      <wsdl:input message="tns:FiyatListesiAlSoapIn" />
+      <wsdl:output message="tns:FiyatListesiAlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DosyaKopyala">
+      <wsdl:input message="tns:DosyaKopyalaSoapIn" />
+      <wsdl:output message="tns:DosyaKopyalaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlAramis">
+      <wsdl:input message="tns:FiyatListesiAlAramisSoapIn" />
+      <wsdl:output message="tns:FiyatListesiAlAramisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlWincor">
+      <wsdl:input message="tns:FiyatListesiAlWincorSoapIn" />
+      <wsdl:output message="tns:FiyatListesiAlWincorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlTerazi">
+      <wsdl:input message="tns:FiyatListesiAlTeraziSoapIn" />
+      <wsdl:output message="tns:FiyatListesiAlTeraziSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DosyaGonder">
+      <soap:operation soapAction="http://tempuri.org/DosyaGonder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SonKayitBul">
+      <soap:operation soapAction="http://tempuri.org/SonKayitBul" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Z_AktarNCR">
+      <soap:operation soapAction="http://tempuri.org/Z_AktarNCR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EksikSatislariBul">
+      <soap:operation soapAction="http://tempuri.org/EksikSatislariBul" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajKontrol">
+      <soap:operation soapAction="http://tempuri.org/MesajKontrol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajGuncelle">
+      <soap:operation soapAction="http://tempuri.org/MesajGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajGuncelleTerazi">
+      <soap:operation soapAction="http://tempuri.org/MesajGuncelleTerazi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TutarCevir">
+      <soap:operation soapAction="http://tempuri.org/TutarCevir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HarfBuyukKucuk">
+      <soap:operation soapAction="http://tempuri.org/HarfBuyukKucuk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimCevir">
+      <soap:operation soapAction="http://tempuri.org/BirimCevir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeKontrolNCR">
+      <soap:operation soapAction="http://tempuri.org/BelgeKontrolNCR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktarNCR">
+      <soap:operation soapAction="http://tempuri.org/BelgeAktarNCR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktarAramis">
+      <soap:operation soapAction="http://tempuri.org/BelgeAktarAramis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktar">
+      <soap:operation soapAction="http://tempuri.org/BelgeAktar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktar2">
+      <soap:operation soapAction="http://tempuri.org/BelgeAktar2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAyrintiAktar">
+      <soap:operation soapAction="http://tempuri.org/BelgeAyrintiAktar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaglantiTest">
+      <soap:operation soapAction="http://tempuri.org/BaglantiTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeOdemeAktar">
+      <soap:operation soapAction="http://tempuri.org/BelgeOdemeAktar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAl">
+      <soap:operation soapAction="http://tempuri.org/FiyatListesiAl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaKopyala">
+      <soap:operation soapAction="http://tempuri.org/DosyaKopyala" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlAramis">
+      <soap:operation soapAction="http://tempuri.org/FiyatListesiAlAramis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlWincor">
+      <soap:operation soapAction="http://tempuri.org/FiyatListesiAlWincor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlTerazi">
+      <soap:operation soapAction="http://tempuri.org/FiyatListesiAlTerazi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DosyaGonder">
+      <soap12:operation soapAction="http://tempuri.org/DosyaGonder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SonKayitBul">
+      <soap12:operation soapAction="http://tempuri.org/SonKayitBul" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Z_AktarNCR">
+      <soap12:operation soapAction="http://tempuri.org/Z_AktarNCR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EksikSatislariBul">
+      <soap12:operation soapAction="http://tempuri.org/EksikSatislariBul" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajKontrol">
+      <soap12:operation soapAction="http://tempuri.org/MesajKontrol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajGuncelle">
+      <soap12:operation soapAction="http://tempuri.org/MesajGuncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajGuncelleTerazi">
+      <soap12:operation soapAction="http://tempuri.org/MesajGuncelleTerazi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TutarCevir">
+      <soap12:operation soapAction="http://tempuri.org/TutarCevir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HarfBuyukKucuk">
+      <soap12:operation soapAction="http://tempuri.org/HarfBuyukKucuk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimCevir">
+      <soap12:operation soapAction="http://tempuri.org/BirimCevir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap12:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeKontrolNCR">
+      <soap12:operation soapAction="http://tempuri.org/BelgeKontrolNCR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktarNCR">
+      <soap12:operation soapAction="http://tempuri.org/BelgeAktarNCR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktarAramis">
+      <soap12:operation soapAction="http://tempuri.org/BelgeAktarAramis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktar">
+      <soap12:operation soapAction="http://tempuri.org/BelgeAktar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAktar2">
+      <soap12:operation soapAction="http://tempuri.org/BelgeAktar2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeAyrintiAktar">
+      <soap12:operation soapAction="http://tempuri.org/BelgeAyrintiAktar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BaglantiTest">
+      <soap12:operation soapAction="http://tempuri.org/BaglantiTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BelgeOdemeAktar">
+      <soap12:operation soapAction="http://tempuri.org/BelgeOdemeAktar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAl">
+      <soap12:operation soapAction="http://tempuri.org/FiyatListesiAl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DosyaKopyala">
+      <soap12:operation soapAction="http://tempuri.org/DosyaKopyala" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlAramis">
+      <soap12:operation soapAction="http://tempuri.org/FiyatListesiAlAramis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlWincor">
+      <soap12:operation soapAction="http://tempuri.org/FiyatListesiAlWincor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FiyatListesiAlTerazi">
+      <soap12:operation soapAction="http://tempuri.org/FiyatListesiAlTerazi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost:10033/Ws96547825.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost:10033/Ws96547825.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
