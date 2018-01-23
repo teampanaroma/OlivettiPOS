@@ -143,7 +143,7 @@
     <Reference Include="WindowsBase" />
     <Reference Include="Xceed.Wpf.Toolkit, Version=2.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\PBT990bundle\PanaromaDll\Xceed.Wpf.Toolkit.dll</HintPath>
+      <HintPath>D:\Güncel Projelerim\PBT FPU - Copy\PBT FPU\PBTFrontOfficeProject\bin\x86\Release\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
