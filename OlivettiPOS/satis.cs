@@ -5039,6 +5039,7 @@ namespace OlivettiPOS
                         }
                     }
                     this.Close();
+                    FPUFuctions.Instance.WriteToDisplay("        KASA","       KAPALI");
                 }
             }
             else
